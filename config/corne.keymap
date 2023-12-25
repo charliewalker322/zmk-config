@@ -11,12 +11,6 @@
 / {
     combos {
         compatible = "zmk,combos";
-
-        combo_delete {
-            bindings = <&kp DELETE>;
-            key-positions = <11 24>;
-            layers = <0 1 2>;
-        };
     };
 
     behaviors {
@@ -27,6 +21,15 @@
             bindings = <&sl 1>, <&tog 2>, <&tog 3>;
 
             tapping-term-ms = <200>;
+        };
+    };
+
+    macros {
+        ctrl_win: ctrl_win {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LCTRL &kp LEFT_COMMAND>;
+            label = "CTRL_WIN";
         };
     };
 
@@ -80,10 +83,10 @@
 
         direction {
             bindings = <
-&kp TAB         &trans    &kp UP    &trans     &trans  &trans          &trans      &kp HOME  &kp PAGE_UP    &trans  &trans  &trans
-&trans          &kp LEFT  &kp DOWN  &kp RIGHT  &trans  &trans          &trans      &kp END   &kp PAGE_DOWN  &trans  &trans  &trans
-&kp LEFT_SHIFT  &trans    &trans    &trans     &trans  &trans          &trans      &trans    &trans         &trans  &trans  &tog 3
-                                    &kp LCTRL  &trans  &kp LEFT_WIN    &kp RETURN  &tog 3    &kp LEFT_ALT
+&kp TAB         &trans    &kp UP    &trans     &kp HOME   &kp PAGE_UP      &trans      &trans  &trans        &trans  &trans  &trans
+&trans          &kp LEFT  &kp DOWN  &kp RIGHT  &kp END    &kp PAGE_DOWN    &trans      &trans  &trans        &trans  &trans  &trans
+&kp LEFT_SHIFT  &trans    &trans    &trans     &trans     &trans           &trans      &trans  &trans        &trans  &trans  &tog 3
+                                    &kp LCTRL  &ctrl_win  &kp LEFT_WIN     &kp RETURN  &tog 3  &kp LEFT_ALT
             >;
         };
     };
