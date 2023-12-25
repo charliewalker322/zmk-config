@@ -11,6 +11,13 @@
 / {
     combos {
         compatible = "zmk,combos";
+
+        combo_del {
+            bindings = <&kp DELETE>;
+            key-positions = <11 24>;
+            timeout-ms = <300>;
+            layers = <0 2 1 3>;
+        };
     };
 
     behaviors {
